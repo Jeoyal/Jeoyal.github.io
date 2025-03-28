@@ -1,3 +1,3 @@
-This is my personal website: wanjiazhao1203.github.io
+This is my personal website: https://jeoyal.github.io/home/
 
 Style referenced from http://hexianghu.com/.
