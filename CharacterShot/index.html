@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>FaceShot</title>
+  <title>CharacterShot</title>
   <link rel="icon" type="image/x-icon" href="static/images/faceshot.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -51,24 +51,27 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">FaceShot: Bring Any Character into Life</h1>
+            <h1 class="title is-1 publication-title">CharacterShot: Controllable and Consistent 4D Character Animation</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://jeoyal.github.io/home/" target="_blank">Junyao Gao</a><sup>1</sup>,</span>
+                <a href="https://jeoyal.github.io/home/" target="_blank">Junyao Gao</a><sup>1,&Dagger;</sup>,</span>
                 <span class="author-block">
-                  <a href="https://scholar.google.com/citations?hl=zh-CN&user=6TA1oPkAAAAJ" target="_blank">Yanan Sun</a><sup>2,&Dagger;,*</sup>,</span>
+                  <a href="https://scholar.google.com/citations?hl=zh-CN&user=LNtaU5YAAAAJ" target="_blank">Jiaxing Li,&Dagger;</a><sup>2,&Dagger;</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://github.com/liuwenran" target="_blank">Wenran Liu</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://zengyh1900.github.io/" target="_blank">Yanhong Zeng</a><sup>2</sup>,
+                  </span>
                   <span class="author-block">
                     <a href="https://muzishen.github.io/" target="_blank">Fei Shen</a><sup>3</sup>,
                   </span>
                   <span class="author-block">
-                    <a href="https://whitejiang.github.io/" target="_blank">Xin Jiang</a><sup>3</sup>,
+                    <a href="https://chenkai.site/" target="_blank">Yanan Sun</a><sup>2,*</sup>,
                   </span>
                   <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=sVYO0GYAAAAJ&hl=en" target="_blank">Zhening Xing</a><sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://chenkai.site/" target="_blank">Kai Chen</a><sup>2,*</sup>,
+                    <a href="https://chenkai.site/" target="_blank">Kai Chen</a><sup>2</sup>,
                   </span>
                   <span class="author-block">
                     <a href="https://vill-lab.github.io/" target="_blank">Cairong Zhao</a><sup>1,*</sup>
@@ -76,8 +79,8 @@
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>Tongji University, <sup>2</sup>Shanghai AI lab, <sup>3</sup>Nanjing University of Science and Technology<br>ICLR 2025</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Authors, <sup>&Dagger;</sup>Project Leader</small></span>
+                    <span class="author-block"><sup>1</sup>Tongji University, <sup>2</sup>Shanghai AI lab, <sup>3</sup>Nanjing University of Science and Technology</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Authors, <sup>&Dagger;</sup>Equal Contributions</small></span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -151,13 +154,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-In this paper, we present <b>FaceShot</b>, a novel training-free portrait animation framework designed to bring any character into life from any driven video without fine-tuning or retraining.
-We achieve this by offering precise and robust reposed landmark sequences from an appearance-guided landmark matching module and a coordinate-based landmark retargeting module.
-Together, these components harness the robust semantic correspondences of latent diffusion models to produce facial motion sequence across a wide range of character types.
-After that, we input the landmark sequences into a pre-trained landmark-driven animation model to generate animated video.
-With this powerful generalization capability, FaceShot can significantly extend the application of portrait animation by breaking the limitation of realistic portrait landmark detection for any stylized character and driven video.
-Also, FaceShot is compatible with any landmark-driven animation model, significantly improving overall performance.
-Extensive experiments on our newly constructed character benchmark CharacBench confirm that FaceShot consistently surpasses state-of-the-art (SOTA) approaches across any character domain.
+            In this paper, we propose <b>CharacterShot</b>, a controllable and consistent 4D character animation framework that enables any individual designer to create dynamic 3D characters (i.e., 4D character animation) from a single reference character image and a 2D pose sequence.
+            We begin by pretraining a powerful 2D character animation model based on a cutting-edge DiT-based image-to-video model, which allows for any 2D pose sequnce as controllable signal.
+            We then lift the animation model from 2D to 3D through introducing dual-attention together with camera prior to generate multi-view videos with spatial-temporal and spatial-view consistency.
+            Finally, we employ a straightforward yet effective 4D gaussian splatting optimization technique on these multi-view videos, resulting in rich 4D character representations.
+            Moreover, to improve character-centric performance, we construct a large-scale dataset Character4D, containing 13,115 unique characters with diverse appearances and motions, rendered from multiple viewpoints.
+            Extensive experiments on our newly constructed benchmark, CharacterBench, demonstrate that our approach outperforms current state-of-the-art methods.
+            Code, models, and datasets will be publicly available.
           </p>
         </div>
       </div>
