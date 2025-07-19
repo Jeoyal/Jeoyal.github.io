@@ -1,2 +1,1 @@
 home/ is my personal website: https://jeoyal.github.io/home/; Style referenced from http://hexianghu.com/.
-CharacterShot/ is the project page of CharacterShot/
