@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MegaStyle: Constructing Diverse and Scalable Style Dataset via Consistent Text-to-Image Style Mapping">
+  <meta name="keywords" content="Image Style Transfer, Style Similarity Measurement, Style Dataset">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MegaStyle: Constructing Diverse and Scalable Style Dataset via Consistent Text-to-Image Style Mapping</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script defer src="./static/js/fontawesome.js"></script> -->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MegaStyle: Constructing Diverse and Scalable Style Dataset via Consistent Text-to-Image Style Mapping</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jeoyal.github.io/home/"> Junyao Gao</a><sup>1,2*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/LiamTTT?tab=repositories">Sibo Liu</a><sup>2*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=LNtaU5YAAAAJ&hl=zh-CN">Jiaxing Li</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=6TA1oPkAAAAJ&hl=zh-CN">Yanan Sun</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yuanpengtu.github.io/">Yuanpeng Tu</a><sup>5</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://muzishen.github.io/">Fei Shen</a><sup>6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=EQAiIvUAAAAJ">Weidong Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://vill-lab.github.io/">Cairong Zhao</a><sup>1‡</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=xUMuDgwAAAAJ">Jun Zhang</a><sup>2‡</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tongji University</span>
+            <span class="author-block"><sup>2</sup>Tencent</span>
+            <br>
+            <span class="author-block"><sup>3</sup>Nanyang Technological University</span>
+            <span class="author-block"><sup>4</sup>Hong Kong University of Science and Technology</span>
+            <br>
+            <span class="author-block"><sup>5</sup>University of Hong Kong</span>
+            <span class="author-block"><sup>6</sup>National University of Singapore</span>
+          </div>
+
+          <div class="is-size-6 has-text-centered" style="max-width: 600px; margin: 0 auto; padding-top: 4px;">
+            <p><sup>*</sup>Equal contribution, <sup>‡</sup>Corresponding Authors.</p>
+          </div>
+
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="./static/images/teaser.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                Visualizations of our style dataset (a)MegaStyle-1.4M and the stylized results produced by our style transfer model (b)MegaStyle-FLUX. MegaStyle-1.4M contains style pairs that share the <strong>style but have different content (intra-style consistency)</strong>, as well as <strong>a large number of diverse styles (inter-style diversity)</strong>. Trained on MegaStyle-1.4M, MegaStyle-FLUX effectively captures nuances—such as color, light, texture and brushwork—across various styles.
+              </p>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.19990"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Tangkexian/LEGO-Puzzles"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/KexianTang/LEGO-Puzzles"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fa fa-download"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/KexianTang/LEGO-Puzzles"
+                  class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fa fa-download"></i>
+                  </span>
+                  <span>Models</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Abstract. -->
+<section class="hero is-light">
+  <div class="container is-max-desktop ">
+    <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we introduce <strong>MegaStyle</strong>, a novel and scalable data curation pipeline that constructs an <strong>intra-style consistent, inter-style diverse and high-quality</strong> style dataset. We achieve this by leveraging the consistent text-to-image style mapping capability of current large generative models, which can generate images in the same style from a given style description. Building on this foundation, we curate a diverse and balanced prompt gallery with 170K style prompts and 400K content prompts, and generate a large-scale style dataset MegaStyle-1.4M via content–style prompt combinations. With MegaStyle-1.4M, we propose style-supervised contrastive learning to fine-tune a style encoder MegaStyle-Encoder for extracting expressive, style-specific representations, and we also train a FLUX-based style transfer model MegaStyle-FLUX. Extensive experiments demonstrate the importance of maintaining intra-style consistency, inter-style diversity and high-quality for style dataset, as well as the effectiveness of the proposed MegaStyle-1.4M.Moreover, when trained on MegaStyle-1.4M, MegaStyle-Encoder and MegaStyle-FLUX provide reliable style similarity measurement and generalizable style transfer, making a significant contribution to the style transfer community. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Abstract. -->
+
+<!-- Method. -->
+<section class="section" style="margin-top:-50px; margin-bottom:-50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3 is-centered">Data Curation Pipeline</h2>
+            <div class="publication-img">
+              <img id="architecture" src="./static/images/pipeline.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+            <div class="content has-text-justified">
+              <p>
+                To comprehensively assess multi-step spatial reasoning in MLLMs, we design <strong>LEGO-Puzzles</strong>, a new benchmark built upon LEGO assembly tasks. Inspired by how humans develop spatial skills through construction processes, we categorize our tasks into three levels: <strong>spatial understanding</strong>, <strong>single-step sequential reasoning</strong>, and <strong>multi-step sequential reasoning</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!-- Method  -->
+
+
+
+<section>
+  <div class="container is-max-desktop" style="margin-top:-50px; margin-bottom:-50px;">
+    <div class="hero-body">     
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Visualization of MegaStyle-1.4M</h2>
+          <div class="content has-text-justified">
+            <p>
+              LEGO-Puzzles contains over <strong>1,100 visual question-answering samples across 11 tasks</strong>. These tasks are evenly distributed across spatial understanding (36.4%), single-step sequential reasoning (36.4%), and multi-step sequential reasoning (27.3%).
+            </p>
+          </div>
+          <div class="publication-img">
+            <img id="architecture" src="./static/images/statistic.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+          </div>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        Statistics of LEGO-Puzzles.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container is-max-desktop" style="margin-top:-50px; margin-bottom:-50px;">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Visualization of MegaStyle-FLUX</h2>
+          <div class="content has-text-justified">
+            <p>
+              We evaluate <strong>20 state-of-the-art MLLMs</strong>, including both proprietary and open-source models, across all LEGO-Puzzles tasks. The table below summarizes the performance of these models on spatial understanding, single-step reasoning, and multi-step reasoning tasks. Despite recent advances, most models exhibit significant limitations in reasoning performance, especially when handling spatial rotations, 3D adjacency, or multi-step assembly sequences.
+            </p>
+          </div>
+          <div class="publication-img">
+            <img id="architecture" src="./static/images/main_results.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+          </div>
+        </div>
+      </div>
+      <p>
+        Table 1. <strong><u>Full Evaluation Results of 18 MLLMs on LEGO-Puzzles.</u></strong>
+        <span style="background-color: #888888;">Dark Gray</span>
+        indicates the best performance for each task among all models and
+        <span style="background-color: #dddddd;">Light Gray</span>
+        indicates the best result among open-source model. We also highlight the top three models based on their overall
+        performance, using
+        <span style="background-color: #00FF00;">Dark Green</span>,
+        <span style="background-color: #99FF99;">Medium Green</span>,
+        and
+        <span style="background-color: #ccffcc;">Light Green</span>, respectively.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container is-max-desktop" style="margin-top:-50px; margin-bottom:-50px;">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Comparisons</h2>
+          <div class="content has-text-justified">
+            <p>
+              To further explore the performance gap between humans and MLLMs, we introduce <strong>LEGO-Puzzles-Lite</strong>, a compact subset of the full benchmark with 220 carefully selected samples (20 per task). The following table compares the performance of top-performing MLLMs against human annotators. While humans achieve near-perfect accuracy, even the best models lag significantly, highlighting the challenges MLLMs face in visual and spatial reasoning.
+            </p>
+          </div>
+          <div class="publication-img">
+            <img id="architecture" src="./static/images/LEGO-Puzzles-Lite_results.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+          </div>
+        </div>
+      </div>
+      <p>
+        Table 2. <strong><u>Comparing Top-Performing MLLMs with Human Proficiency on LEGO-Puzzles-Lite.</u></strong>
+        The best results are marked in <strong>bold</strong>.
+        The top three overall performances are highlighted in
+        <span style="background-color: #00FF00;">Dark Green</span>,
+        <span style="background-color: #99FF99;">Medium Green</span>,
+        and
+        <span style="background-color: #ccffcc;">Light Green</span>, respectively.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+  }
+
+
+  .image-item img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{tang2025lego,
+    title={LEGO-Puzzles: How Good Are MLLMs at Multi-Step Spatial Reasoning?},
+    author={Tang, Kexian and Gao, Junyao and Zeng, Yanhong and Duan, Haodong and Sun, Yanan and Xing, Zhening and Liu,
+    Wenran and Lyu, Kaifeng and Chen, Kai},
+    journal={arXiv preprint arXiv:2503.19990},
+    year={2025}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. Thanks for their excellent work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
