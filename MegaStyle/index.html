@@ -111,41 +111,41 @@
             <div class="publication-links">
               <!-- Paper Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2503.19990"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper (coming soon)</span>
                 </a>
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Tangkexian/LEGO-Puzzles"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (coming soon)</span>
                 </a>
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/datasets/KexianTang/LEGO-Puzzles"
+                <a href="#"
                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
                   <span class="icon">
                     <i class="fa fa-download"></i>
                   </span>
-                  <span>Dataset</span>
+                  <span>Dataset (coming soon)</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://huggingface.co/datasets/KexianTang/LEGO-Puzzles"
+                <a href="#"
                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
                   <span class="icon">
                     <i class="fa fa-download"></i>
                   </span>
-                  <span>Models</span>
+                  <span>Models (coming soon)</span>
                 </a>
               </span>
             </div>
@@ -188,7 +188,7 @@
             </div>
             <div class="content has-text-justified">
               <p>
-                To comprehensively assess multi-step spatial reasoning in MLLMs, we design <strong>LEGO-Puzzles</strong>, a new benchmark built upon LEGO assembly tasks. Inspired by how humans develop spatial skills through construction processes, we categorize our tasks into three levels: <strong>spatial understanding</strong>, <strong>single-step sequential reasoning</strong>, and <strong>multi-step sequential reasoning</strong>.
+                Overview of our data curation pipeline. We first collect style and content images from open-source datasets. Next, we apply carefully designed instructions to generate style and content prompts with Qwen3-VL, together with balance sampling. Finally, we use Qwen-Image to generate style images using content-style prompt combinations. <strong> Please note that we use simplified content and style prompts for illustrative purposes only</strong>.
               </p>
             </div>
           </div>
@@ -205,20 +205,17 @@
     <div class="hero-body">     
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <h2 class="title is-3">Visualization of MegaStyle-1.4M</h2>
+          <h2 class="title is-3">Visualizations of MegaStyle-1.4M</h2>
           <div class="content has-text-justified">
             <p>
-              LEGO-Puzzles contains over <strong>1,100 visual question-answering samples across 11 tasks</strong>. These tasks are evenly distributed across spatial understanding (36.4%), single-step sequential reasoning (36.4%), and multi-step sequential reasoning (27.3%).
+              Each row presents the same style across different contents. MegaStyle-1.4M contains diverse, high-quality style images with strong intra-style consistency.
             </p>
           </div>
           <div class="publication-img">
-            <img id="architecture" src="./static/images/statistic.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            <img id="architecture" src="./static/images/megastyle1.4M.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
           </div>
         </div>
       </div>
-      <h2 class="subtitle has-text-centered">
-        Statistics of LEGO-Puzzles.
-      </h2>
     </div>
   </div>
 </section>
@@ -229,29 +226,17 @@
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <h2 class="title is-3">Visualization of MegaStyle-FLUX</h2>
+          <h2 class="title is-3">Stylized results of MegaStyle-FLUX</h2>
           <div class="content has-text-justified">
             <p>
-              We evaluate <strong>20 state-of-the-art MLLMs</strong>, including both proprietary and open-source models, across all LEGO-Puzzles tasks. The table below summarizes the performance of these models on spatial understanding, single-step reasoning, and multi-step reasoning tasks. Despite recent advances, most models exhibit significant limitations in reasoning performance, especially when handling spatial rotations, 3D adjacency, or multi-step assembly sequences.
+              Trained on MegaStyle-1.4M, MegaStyle-FLUX generates stylized images that align with the content specified by the text prompt and the style of the reference image.
             </p>
           </div>
           <div class="publication-img">
-            <img id="architecture" src="./static/images/main_results.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            <img id="architecture" src="./static/images/megastyleflux.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
           </div>
         </div>
       </div>
-      <p>
-        Table 1. <strong><u>Full Evaluation Results of 18 MLLMs on LEGO-Puzzles.</u></strong>
-        <span style="background-color: #888888;">Dark Gray</span>
-        indicates the best performance for each task among all models and
-        <span style="background-color: #dddddd;">Light Gray</span>
-        indicates the best result among open-source model. We also highlight the top three models based on their overall
-        performance, using
-        <span style="background-color: #00FF00;">Dark Green</span>,
-        <span style="background-color: #99FF99;">Medium Green</span>,
-        and
-        <span style="background-color: #ccffcc;">Light Green</span>, respectively.
-      </p>
     </div>
   </div>
 </section>
@@ -264,23 +249,14 @@
           <h2 class="title is-3">Comparisons</h2>
           <div class="content has-text-justified">
             <p>
-              To further explore the performance gap between humans and MLLMs, we introduce <strong>LEGO-Puzzles-Lite</strong>, a compact subset of the full benchmark with 220 carefully selected samples (20 per task). The following table compares the performance of top-performing MLLMs against human annotators. While humans achieve near-perfect accuracy, even the best models lag significantly, highlighting the challenges MLLMs face in visual and spatial reasoning.
+              We compare MegaStyle-FLUX with the SOTA style transfer methods, including DEADiff, StyleShot, Attention-Distillation (Attn-Distill), CSGO, StyleCrafter, InstantStyle and StyleAligned. MegaStyle-FLUX achieves the superior performance compared to these baseline methods.
             </p>
           </div>
           <div class="publication-img">
-            <img id="architecture" src="./static/images/LEGO-Puzzles-Lite_results.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            <img id="architecture" src="./static/images/comparisons.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
           </div>
         </div>
       </div>
-      <p>
-        Table 2. <strong><u>Comparing Top-Performing MLLMs with Human Proficiency on LEGO-Puzzles-Lite.</u></strong>
-        The best results are marked in <strong>bold</strong>.
-        The top three overall performances are highlighted in
-        <span style="background-color: #00FF00;">Dark Green</span>,
-        <span style="background-color: #99FF99;">Medium Green</span>,
-        and
-        <span style="background-color: #ccffcc;">Light Green</span>, respectively.
-      </p>
     </div>
   </div>
 </section>
@@ -307,12 +283,8 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{tang2025lego,
-    title={LEGO-Puzzles: How Good Are MLLMs at Multi-Step Spatial Reasoning?},
-    author={Tang, Kexian and Gao, Junyao and Zeng, Yanhong and Duan, Haodong and Sun, Yanan and Xing, Zhening and Liu,
-    Wenran and Lyu, Kaifeng and Chen, Kai},
-    journal={arXiv preprint arXiv:2503.19990},
-    year={2025}
+    <pre><code>@article{
+      TBA
     }</code></pre>
   </div>
 </section>
